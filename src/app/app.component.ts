@@ -57,6 +57,9 @@ export class AppComponent {
     }else if(val == '+/-'){
       this.result = this.result * (-1);
       
+    }else if(val == '%'){
+      this.result = parseFloat(this.displayValue) / 100;
+      
     }else if(this.currentOperator === 'No Function Use'){
       this.firstOperand = this.result;
       this.result=0;
