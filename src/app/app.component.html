@@ -6,9 +6,9 @@
         <div class="w-full h-40 bg-gradient-to-br to-gray-700 from-black text-right">
 
             <!--  fuction screen  -->
-            <div class="w-full py-5 px-6 text-2xl text-white font-thin">{{calFun}}</div>
+            <div class="w-full py-5 px-6 text-2xl text-white font-thin">{{currentOperator}}</div>
             <!--  number screen  -->
-            <div class="w-full py-5 px-6 text-6xl text-white font-thin">{{calValue | number}}</div>
+            <div class="w-full py-5 px-6 text-6xl text-white font-thin">{{result | number}}</div>
 
         </div>
         <!-- end calculator screen  -->
@@ -20,7 +20,7 @@
             <div class="flex w-full">
                 <div class="w-1/4 border-r border-b border-black bg-gray-600">
                     <!-- clear button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('AC','fuction')"> AC </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('AC','fuction')">{{ displayValue === 'anyValue' ? 'AC' : 'C' }}</button>
                 </div>
                 <div class="w-1/4 border-r border-b border-black  bg-gray-600">
                     <!-- plus or minus button -->

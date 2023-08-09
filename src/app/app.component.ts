@@ -8,70 +8,102 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'CalculatorApp';
 
-  calValue: number = 0;
-  calFun: any = 'No Function Use';
-  calScNumber: string = 'anyValue';
-  calFsNumber: number = 0 ;
-  calSeNumber: number = 0 ;
+  result: number = 0;
+  firstOperand: number = 0 ;
+  secondOperand: number = 0 ;
+  displayValue: string = 'anyValue';
+  currentOperator: any = 'No Function Use';
 
   onClickValue(val: string, type: any){
-    if(type == 'number'){
+    if(type === 'number'){
       this.onNumberClick(val);
-    }else if(type == 'fuction'){
+    }else if(type === 'fuction'){
       this.onFunctionClick(val);
     }
   }
 
   onNumberClick(val: string){
-    if(this.calScNumber != 'anyValue'){
-      this.calScNumber += val;
+    
+    if(this.displayValue != 'anyValue'){
+      this.displayValue += val;
     }else{
-      this.calScNumber = val;
+      this.displayValue = val;
     }
-    this.calValue=parseFloat(this.calScNumber);
+    this.result=parseFloat(this.displayValue);
   }
 
   onFunctionClick(val: string){
 
-    if(this.calFun == 'No Function Use'){
-      this.calFsNumber = this.calValue;
-      this.calValue=0;
-      this.calScNumber = 'anyValue';
-      this.calFun = val;
-    }else if(this.calFun != 'No Function Use'){
-      this.calSeNumber = this.calValue;
+    if(val == 'AC'){
+
+      if(this.displayValue !== 'anyValue' && this.displayValue.length > 0){ 
+
+        if(this.displayValue === '0'){
+          this.result=parseFloat(this.displayValue);
+
+        }else if(this.displayValue.length === 1){
+          this.displayValue = this.displayValue.slice(0, -1);
+          this.result=0;
+
+        }else{
+          this.displayValue = this.displayValue.slice(0, -1);
+          this.result=parseFloat(this.displayValue);
+        }
+          
+      }else{
+        this.clearAll();
+      }
+      
+
+    }else if(this.currentOperator === 'No Function Use'){
+      this.firstOperand = this.result;
+      this.result=0;
+      this.displayValue = 'anyValue';
+      this.currentOperator = val;
+
+    }else if(this.currentOperator != 'No Function Use'){
+      this.secondOperand = this.result;
       this.valueCalculate(val);
     }
   }
 
   valueCalculate(val: string){
 
-    if(this.calFun == '+'){
-      const Total = this.calFsNumber + this.calSeNumber;
+    if(this.currentOperator === '+'){
+      const Total = this.firstOperand + this.secondOperand;
       this.totalAssignValues(Total, val);
 
-    } else if(this.calFun == '-'){
-      const Total = this.calFsNumber - this.calSeNumber;
+    } else if(this.currentOperator === '-'){
+      const Total = this.firstOperand - this.secondOperand;
       this.totalAssignValues(Total, val);
 
-    } else if(this.calFun == '/'){
-      const Total = this.calFsNumber / this.calSeNumber;
+    } else if(this.currentOperator === '/'){
+      const Total = this.firstOperand / this.secondOperand;
       this.totalAssignValues(Total, val);
 
-    } else if(this.calFun == 'X'){
-      const Total = this.calFsNumber * this.calSeNumber;
+    } else if(this.currentOperator === 'X'){
+      const Total = this.firstOperand * this.secondOperand;
       this.totalAssignValues(Total, val);
 
-    }else if(this.calFun == '='){
-      const Total = this.calFsNumber;
+    }else if(this.currentOperator === '='){
+      const Total = this.firstOperand;
       this.totalAssignValues(Total, val);
     }
   }
+
   totalAssignValues(Total: number, val: string){
-    this.calValue = Total;
-      this.calFsNumber = Total;
-      this.calSeNumber = 0;
-      this.calScNumber = 'anyValue';
-      this.calFun = val;
+    this.result = Total;
+    this.firstOperand = Total;
+    this.secondOperand = 0;
+    this.displayValue = 'anyValue';
+    this.currentOperator = val;
+  }
+
+  clearAll(){
+    this.result = 0;
+    this.firstOperand = 0;
+    this.secondOperand = 0;
+    this.displayValue = 'anyValue';
+    this.currentOperator = 'No Function Use';
   }
 }
