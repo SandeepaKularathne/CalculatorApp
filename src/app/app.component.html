@@ -6,9 +6,9 @@
         <div class="w-full h-40 bg-gradient-to-br to-gray-700 from-black text-right">
 
             <!--  fuction screen  -->
-            <div class="w-full py-5 px-6 text-2xl text-white font-thin">Function</div>
+            <div class="w-full py-5 px-6 text-2xl text-white font-thin">{{calFun}}</div>
             <!--  number screen  -->
-            <div class="w-full py-5 px-6 text-6xl text-white font-thin">100</div>
+            <div class="w-full py-5 px-6 text-6xl text-white font-thin">{{calValue | number}}</div>
 
         </div>
         <!-- end calculator screen  -->
@@ -20,19 +20,19 @@
             <div class="flex w-full">
                 <div class="w-1/4 border-r border-b border-black bg-gray-600">
                     <!-- clear button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> AC </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('AC','fuction')"> AC </button>
                 </div>
                 <div class="w-1/4 border-r border-b border-black  bg-gray-600">
                     <!-- plus or minus button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> + / - </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('+/-','fuction')"> + / - </button>
                 </div>
                 <div class="w-1/4 border-r border-b border-black  bg-gray-600">
                     <!-- percentage button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> % </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('%','fuction')"> % </button>
                 </div>
                 <div class="w-1/4 border-r border-b border-black bg-orange-500">
                     <!-- divide button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> / </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('/','fuction')"> / </button>
                 </div>
             </div>
 
@@ -40,19 +40,19 @@
             <div class="flex w-full">
                 <div class="w-1/4 border-r border-b border-black bg-gray-500">
                     <!-- 7 button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> 7 </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('7','number')"> 7 </button>
                 </div>
                 <div class="w-1/4 border-r border-b border-black bg-gray-500">
                     <!-- 8 button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> 8 </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('8','number')"> 8 </button>
                 </div>
                 <div class="w-1/4 border-r border-b border-black bg-gray-500">
                     <!-- 9 button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> 9 </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('9','number')"> 9 </button>
                 </div>
                 <div class="w-1/4 border-r border-b border-black bg-orange-500">
                     <!-- multiplication button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> X </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('X','fuction')"> X </button>
                 </div>
             </div>
 
@@ -60,19 +60,19 @@
             <div class="flex w-full">
                 <div class="w-1/4 border-r border-b border-black bg-gray-500">
                     <!-- 4 button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> 4 </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('4','number')"> 4 </button>
                 </div>
                 <div class="w-1/4 border-r border-b border-black bg-gray-500">
                     <!-- 5 button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> 5 </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('5','number')"> 5 </button>
                 </div>
                 <div class="w-1/4 border-r border-b border-black bg-gray-500">
                     <!-- 6 button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> 6 </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('6','number')"> 6 </button>
                 </div>
                 <div class="w-1/4 border-r border-b border-black bg-orange-500">
                     <!-- minus button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> - </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('-','fuction')"> - </button>
                 </div>
             </div>
 
@@ -80,19 +80,19 @@
             <div class="flex w-full">
                 <div class="w-1/4 border-r border-b border-black bg-gray-500">
                     <!-- 1 button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> 1 </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('1','number')"> 1 </button>
                 </div>
                 <div class="w-1/4 border-r border-b border-black bg-gray-500">
                     <!-- 2 button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> 2 </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('2','number')"> 2 </button>
                 </div>
                 <div class="w-1/4 border-r border-b border-black bg-gray-500">
                     <!-- 3 button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> 3 </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('3','number')"> 3 </button>
                 </div>
                 <div class="w-1/4 border-r border-b border-black bg-orange-500">
                     <!-- plus button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> + </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('+','fuction')"> + </button>
                 </div>
             </div>
 
@@ -100,15 +100,15 @@
             <div class="flex w-full">
                 <div class="w-2/4 border-r border-b border-black bg-gray-500">
                     <!-- 0 button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> 0 </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('0','number')"> 0 </button>
                 </div>
                 <div class="w-1/4 border-r border-b border-black bg-gray-500">
                     <!-- dot button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> . </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('.','number')"> . </button>
                 </div>
                 <div class="w-1/4 border-r border-b border-black bg-orange-500">
                     <!-- equal button -->
-                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light"> = </button>
+                    <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-opacity-50 text-white text-xl font-light" (click)="onClickValue('=','fuction')"> = </button>
                 </div>
             </div>
         </div>
