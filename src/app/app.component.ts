@@ -54,7 +54,9 @@ export class AppComponent {
         this.clearAll();
       }
       
-
+    }else if(val == '+/-'){
+      this.result = this.result * (-1);
+      
     }else if(this.currentOperator === 'No Function Use'){
       this.firstOperand = this.result;
       this.result=0;
