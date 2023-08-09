@@ -22,14 +22,18 @@ export class AppComponent {
     }
   }
 
-  onNumberClick(val: string){
+  onNumberClick(val: string) {
+    const dotCount = this.displayValue.split('.').length - 1;
+    if (val === '.' && dotCount >= 1) {return;}
     
-    if(this.displayValue != 'anyValue'){
+    if (this.displayValue !== 'anyValue' && this.displayValue.length < 9) {
       this.displayValue += val;
-    }else{
+    } else if (this.displayValue === 'anyValue') {
       this.displayValue = val;
     }
-    this.result=parseFloat(this.displayValue);
+    console.log("value= "+this.displayValue);
+    this.result = parseFloat(this.displayValue);
+    console.log("result= "+this.result);
   }
 
   onFunctionClick(val: string){
