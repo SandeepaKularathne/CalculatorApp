@@ -31,9 +31,7 @@ export class AppComponent {
     } else if (this.displayValue === 'anyValue') {
       this.displayValue = val;
     }
-    console.log("value= "+this.displayValue);
     this.result = parseFloat(this.displayValue);
-    console.log("result= "+this.result);
   }
 
   onFunctionClick(val: string){
